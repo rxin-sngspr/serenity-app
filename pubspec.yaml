@@ -1,0 +1,83 @@
+name: serenity
+description: "A private home for your relationship story."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State management
+  flutter_riverpod: ^2.6.0
+  riverpod: ^2.6.0
+
+  # Database
+  drift: ^2.24.0
+  sqlite3_flutter_libs: ^0.5.0
+  path_provider: ^2.1.0
+  path: ^1.9.0
+
+  # Navigation
+  go_router: ^14.0.0
+
+  # Security
+  flutter_secure_storage: ^9.0.0
+
+  # Media
+  image_picker: ^1.0.0
+
+  # Sharing
+  share_plus: ^10.0.0
+
+  # Icons
+  lucide_icons_flutter: ^3.1.14+2
+
+  # Backend
+  supabase_flutter: ^2.8.0
+
+  # Environment
+  flutter_dotenv: ^5.2.1
+
+  # Connectivity
+  connectivity_plus: ^6.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  drift_dev: ^2.24.0
+  build_runner: ^2.4.0
+  flutter_launcher_icons: ^0.14.0
+
+# Launcher icon
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/icon.png"
+  adaptive_icon_background: "#D4737A"
+  adaptive_icon_foreground: "assets/icon/icon_foreground.png"
+  remove_alpha_ios: true
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/questions/questions.json
+    - assets/questions/reflection_prompts.json
+    - .env
+
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/inter/Inter[opsz,wght].ttf
+    - family: Plus Jakarta Sans
+      fonts:
+        - asset: assets/fonts/jakarta/PlusJakartaSans[wght].ttf
+    - family: Cormorant Garamond
+      fonts:
+        - asset: assets/fonts/cormorant/CormorantGaramond[wght].ttf
+        - asset: assets/fonts/cormorant/CormorantGaramond-Italic[wght].ttf
+          style: italic

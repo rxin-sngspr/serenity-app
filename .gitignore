@@ -1,0 +1,89 @@
+# ─── Environment ───────────────────────────────────────────
+.env
+.env.local
+.env.production
+.env.development
+
+# ─── Miscellaneous ─────────────────────────────────────────
+*.class
+*.log
+*.pyc
+*.swp
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+*.pid
+*.lock
+
+# ─── IntelliJ / IDEA ──────────────────────────────────────
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# ─── VS Code ──────────────────────────────────────────────
+.vscode/
+
+# ─── Flutter / Dart / Pub ──────────────────────────────────
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+/coverage/
+*.js_.dart
+*.js.deps
+*.js.map
+
+# ─── Android ──────────────────────────────────────────────
+**/android/local.properties
+**/android/key.properties
+**/android/app/debug
+**/android/app/profile
+**/android/app/release
+**/android/.gradle/
+**/android/captures/
+**/android/.idea/
+*.iml
+
+# ─── iOS / macOS ──────────────────────────────────────────
+**/ios/Pods/
+**/ios/.symlinks/
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/App.framework
+**/ios/Flutter/ephemeral/
+**/macos/Pods/
+**/macos/.symlinks/
+**/macos/Flutter/ephemeral/
+*.xcworkspace
+xcuserdata/
+
+# ─── Linux / Windows ──────────────────────────────────────
+**/linux/flutter/ephemeral/
+**/windows/flutter/ephemeral/
+
+# ─── Symbolication ────────────────────────────────────────
+app.*.symbols
+
+# ─── Obfuscation ──────────────────────────────────────────
+app.*.map.json
+
+# ─── Generated files ──────────────────────────────────────
+*.g.dart
+*.freezed.dart
+**/generated/
+**/generated_plugin_registrant.dart
+
+# ─── IDE / Editor ─────────────────────────────────────────
+.superpowers/
+.slim/
