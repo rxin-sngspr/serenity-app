@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="assets/icon/icon.png" alt="Serenity" width="100" height="100">
-</p>
-
 <h1 align="center">Serenity</h1>
 
 <p align="center">
