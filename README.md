@@ -1,33 +1,23 @@
-<p align="center">
-  <img src="assets/icon/icon.png" alt="Serenity" width="100" height="100">
-</p>
+# Serenity
 
-<h1 align="center">Serenity</h1>
+> A private home for your relationship story.
 
-<p align="center">
-  <em>A private home for your relationship story.</em>
-</p>
+A Flutter app designed for couples to build stronger relationships through shared memories, daily reflections, milestones, and emotional awareness — all private, all local-first.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/platform-Android%20|%20iOS%20|%20Linux%20|%20macOS%20|%20Windows-blue" alt="Platforms">
-  <img src="https://img.shields.io/badge/Flutter-3.12+-blue?logo=flutter" alt="Flutter">
-  <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
-</p>
+**Platform:** Android, iOS, Linux, macOS, Windows  
+**Framework:** Flutter 3.12+ | Dart 3.12+  
+**License:** MIT
 
 ---
 
-## Overview
+## Features
 
-Serenity is a private couple's journaling app. It gives you and your partner a shared space to capture memories, reflect on your day together, and build a timeline of your relationship — all without notifications, analytics, or gamification.
-
-### Features
-
-- **Timeline** — Shared feed of memories and milestones from both partners.
-- **Reflect** — Daily reflection prompts and questions to spark meaningful conversations.
-- **Daily Questions** — Answer one question per day. See your partner's answers.
-- **Partner Sync** — Automatically sync memories, milestones, and reflections through Supabase.
-- **Calendar Filter** — Tap any day on the calendar to see what happened that day.
-- **Privacy First** — No analytics, no push notifications, no gamification.
+- **Timeline** — Shared feed of memories and milestones from both partners
+- **Reflect** — Daily reflection prompts and questions to spark meaningful conversations
+- **Daily Questions** — Answer one question per day, see your partner's answers
+- **Partner Sync** — Automatically sync memories, milestones, and reflections between devices
+- **Calendar** — Tap any day to see what happened that day
+- **Privacy First** — No analytics, no notifications, no gamification, no noise
 
 ---
 
@@ -36,48 +26,50 @@ Serenity is a private couple's journaling app. It gives you and your partner a s
 | Layer | Technology |
 |-------|-----------|
 | Framework | Flutter 3.12+ / Dart 3.12+ |
-| State | Riverpod |
-| Database | Drift (SQLite) |
-| Sync | Supabase (PostgreSQL) |
-| Auth | Supabase Auth (email, passkeys) |
+| State Management | Riverpod |
+| Local Database | Drift (SQLite) |
+| Cloud Sync | Supabase (PostgreSQL) |
+| Authentication | Supabase Auth (email, passkeys) |
 | Navigation | GoRouter |
 | Icons | Lucide Icons |
-| Fonts | Inter, Plus Jakarta Sans, Cormorant Garamond |
+| Typography | Inter, Plus Jakarta Sans, Cormorant Garamond |
 
 ---
 
 ## Project Structure
 
 ```
-serenity_app/
-├── lib/
-│   ├── core/
-│   │   ├── auth/            # Authentication gate & provider
-│   │   ├── components/      # Shared UI components
-│   │   ├── database/        # Drift schema, DAOs, providers
-│   │   ├── router/          # GoRouter configuration
-│   │   ├── supabase/        # Supabase initialization & config
-│   │   ├── sync/            # Push/pull sync engine
-│   │   └── theme/           # Theme system & palette
-│   ├── features/
-│   │   ├── auth/            # Sign in / sign up / onboarding
-│   │   ├── couple/          # Couple linking & settings
-│   │   ├── me/              # Profile & partner answers
-│   │   ├── reflect/         # Daily questions & reflection
-│   │   └── story/           # Timeline, memories, milestones
-│   ├── generated/           # Drift-generated code
-│   ├── app.dart
-│   └── main.dart
-├── assets/
-│   ├── fonts/               # Inter, Jakarta, Cormorant
-│   └── questions/           # Question & prompt JSON bundles
-├── docs/
-│   ├── SQL_RLS_POLICIES.sql # Supabase Row Level Security
-│   ├── ARCHITECTURE.md      # App architecture documentation
-│   ├── BUILD.md             # Build order & setup
-│   ├── PRODUCT.md           # Product specification
-│   └── ...
-└── test/
+lib/
+  ├── core/
+  │   ├── auth/            # Authentication gate & provider
+  │   ├── components/      # Shared UI components
+  │   ├── database/        # Drift schema, DAOs, providers
+  │   ├── router/          # GoRouter configuration
+  │   ├── supabase/        # Supabase initialization
+  │   ├── sync/            # Push/pull sync engine
+  │   └── theme/           # Theme system & palette
+  ├── features/
+  │   ├── auth/            # Sign in, sign up, onboarding
+  │   ├── couple/          # Couple linking & settings
+  │   ├── me/              # Profile & partner answers
+  │   ├── reflect/         # Daily questions & reflection
+  │   └── story/           # Timeline, memories, milestones
+  ├── app.dart
+  └── main.dart
+
+assets/
+  ├── fonts/               # Inter, Jakarta, Cormorant
+  └── questions/           # Question & prompt bundles
+
+docs/
+  ├── INDEX.md             # Documentation guide
+  ├── PRODUCT.md           # Product vision
+  ├── ARCHITECTURE.md      # Technical design
+  ├── BUILD.md             # Build instructions
+  ├── ROADMAP.md           # Roadmap & milestones
+  ├── DECISIONS.md         # Architecture decisions
+  ├── FUTURE.md            # Parked ideas
+  └── CHANGELOG.md         # Completed work
 ```
 
 ---
@@ -94,7 +86,7 @@ serenity_app/
 1. **Clone the repo**
    ```bash
    git clone https://github.com/rxin-sngspr/serenity-app.git
-   cd serenity-app/serenity_app
+   cd serenity-app
    ```
 
 2. **Set up environment variables**
@@ -124,22 +116,40 @@ serenity_app/
 
 ### Supabase Setup
 
-1. Create a Supabase project.
-2. Run the SQL policies in `docs/SQL_RLS_POLICIES.sql`.
-3. Disable email confirmation in Supabase Auth settings (optional for dev).
-4. Copy your project URL and anon key into `.env`.
+1. Create a Supabase project
+2. Set up Row Level Security policies (see `docs/ARCHITECTURE.md`)
+3. Copy your project URL and anon key into `.env`
 
 ---
 
-## Design
+## Architecture & Design
 
-Serenity uses a warm, intimate visual language:
+**Local-First** — Data lives on your device first. Sync happens in the background.
 
-- **Default theme** — Warm rose (`#D4737A`) on dark backgrounds
-- **5 theme presets** — Warm Rose, Sage, Ocean, Terracotta, Lavender
-- **Typography** — Plus Jakarta Sans (UI), Inter (body), Cormorant Garamond (quotes)
-- **Icons** — Lucide Icons throughout
-- **Philosophy** — Calm, private, human. No notifications. No streaks. No noise.
+**Private-First** — No analytics, no tracking, no cloud creep. Your relationship story stays yours.
+
+**Warm & Minimal** — Five theme presets (Warm Rose, Sage Garden, Ocean Calm, Terracotta, Lavender Night) with calm, intentional design.
+
+For deep technical details, see [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+
+---
+
+## Documentation
+
+- **[INDEX.md](docs/INDEX.md)** — Documentation guide
+- **[PRODUCT.md](docs/PRODUCT.md)** — Product vision & principles
+- **[ARCHITECTURE.md](docs/ARCHITECTURE.md)** — System design, data flow, database schema
+- **[BUILD.md](docs/BUILD.md)** — Build instructions & troubleshooting
+- **[ROADMAP.md](docs/ROADMAP.md)** — Milestones & current status
+- **[DECISIONS.md](docs/DECISIONS.md)** — Why we made key technical choices
+- **[FUTURE.md](docs/FUTURE.md)** — Parked ideas not in scope
+- **[CHANGELOG.md](docs/CHANGELOG.md)** — What's been shipped
+
+---
+
+## Contributing
+
+This is a personal project, but ideas and feedback are welcome. Feel free to fork, explore, and learn.
 
 ---
 
